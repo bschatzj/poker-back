@@ -8,7 +8,7 @@ exports.up = function (knex) {
             .notNullable();
         table.string("Phone")
         table.timestamp('Time')
-            .defaultTo(Now())
+            .defaultTo(NOW())
     });
 };
 

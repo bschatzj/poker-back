@@ -9,10 +9,11 @@ router.post('/checkin', async (req, res) => {
     await db('waitlist')
         .insert({ GameName: req.body.game, DisplayName: req.body.name, Phone: req.body.phone })
         .then(info => {
-            console.log(info)
+            console.log("working", info)
             res.status(200).json(info)
         })
         .catch(err => {
+            console.log(err)
             res.status(500).json(err)
         })
 })

@@ -2,7 +2,7 @@ const router = require('express-promise-router')()
 
 const db = require('../../data/db');
 
-router.post('/checkin', (req, res) => {
+router.post('/checkin', async (req, res) => {
     let user = { GameName: req.body.game, DisplayName: req.body.name, Phone: req.body.phone }
 
     await db('waitlist')
@@ -16,7 +16,7 @@ router.post('/checkin', (req, res) => {
 })
 
 
-router.get('/allgames', (req, res) => {
+router.get('/allgames', async (req, res) => {
     await db('waitlist')
         .then(res => {
             res.status(200).json(res)

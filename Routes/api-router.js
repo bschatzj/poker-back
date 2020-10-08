@@ -1,5 +1,5 @@
 const router = require('express').Router()
-
+const CheckInRouter = require('./CheckIn/CheckInRoutes')
 
 
 router.get('/', (req, res) => {
@@ -7,5 +7,6 @@ router.get('/', (req, res) => {
 }
 )
 
+router.use('/', CheckInRouter)
 
 module.exports = router

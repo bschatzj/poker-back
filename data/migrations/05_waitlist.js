@@ -7,7 +7,7 @@ exports.up = function (knex) {
         table.string("DisplayName", 128)
             .notNullable();
         table.string("Phone")
-        table.timestamp('Time')
+        table.bigint('Time')
             .defaultTo(Date.now())
     });
 };

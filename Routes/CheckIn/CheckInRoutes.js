@@ -1,5 +1,6 @@
 const router = require('express-promise-router')()
 
+const { response } = require('express');
 const db = require('../../data/db');
 
 router.post('/checkin', async (req, res) => {
@@ -8,6 +9,7 @@ router.post('/checkin', async (req, res) => {
     await db('waitlist')
         .insert(user)
         .then(info => {
+            console.log(info)
             res.status(200).json(info)
         })
         .catch(err => {
@@ -18,9 +20,9 @@ router.post('/checkin', async (req, res) => {
 
 router.get('/allgames', async (req, res) => {
     await db('waitlist')
-        .then(res => {
-            console.log(res)
-            res.status(200).json(res)
+        .then(response => {
+            console.log(response)
+            res.status(200).json(response)
         })
         .catch(err => {
             res.status(400).json(err)

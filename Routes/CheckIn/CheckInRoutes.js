@@ -19,6 +19,7 @@ router.post('/checkin', async (req, res) => {
 router.get('/allgames', async (req, res) => {
     await db('waitlist')
         .then(res => {
+            console.log(res)
             res.status(200).json(res)
         })
         .catch(err => {

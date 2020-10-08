@@ -1,6 +1,5 @@
 const router = require('express-promise-router')()
 
-const { response } = require('express');
 const db = require('../../data/db');
 
 router.post('/checkin', async (req, res) => {

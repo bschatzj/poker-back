@@ -5,7 +5,7 @@ const db = require('../../data/db');
 
 router.post('/checkin', async (req, res) => {
 
-
+    console.log(req.body)
     await db('waitlist')
         .insert({ GameName: req.body.game, DisplayName: req.body.name, Phone: req.body.phone })
         .then(info => {

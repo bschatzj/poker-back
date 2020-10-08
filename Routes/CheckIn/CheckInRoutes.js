@@ -4,10 +4,10 @@ const { response } = require('express');
 const db = require('../../data/db');
 
 router.post('/checkin', async (req, res) => {
-    let user = { GameName: req.body.game, DisplayName: req.body.name, Phone: req.body.phone }
+
 
     await db('waitlist')
-        .insert(user)
+        .insert({ GameName: req.body.game, DisplayName: req.body.name, Phone: req.body.phone })
         .then(info => {
             console.log(info)
             res.status(200).json(info)

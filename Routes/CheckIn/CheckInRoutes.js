@@ -31,7 +31,7 @@ router.get('/allgames', async (req, res) => {
 
 router.delete('/cancel', async (req, res) => {
     await db('waitlist')
-        .where(req.body.user == waitlist)
+        .where("waitlist", req.body.id)
         .delete()
         .then((deleted) => {
             res.status(204).json({ message: "success" })

@@ -29,7 +29,17 @@ router.get('/allgames', async (req, res) => {
         })
 })
 
-
+router.delete('/cancel', async (req, res) => {
+    await db('waitlist')
+        .where(req.user == waitlist)
+        .delete()
+        .then((deleted) => {
+            res.status(204).json({ message: "success" })
+        })
+        .catch(err => {
+            res.status(404).json({ message: "Something went wrong!!!" })
+        })
+})
 
 
 module.exports = router

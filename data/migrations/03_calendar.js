@@ -1,7 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable("calendar", tbl => {
     tbl.increments('calendar');
-    tbl.timestamp('Date')
+    tbl.string('Date')
       .notNullable();
     tbl.string('Title')
       .notNullable();

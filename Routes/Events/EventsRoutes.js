@@ -6,7 +6,7 @@ const { all } = require('../api-router');
 
 router.get('/', async (req, res) => {
     console.log('working')
-    await db('calender')
+    await db('calendar')
         .then(allEvents => {
             console.log(allEvents)
             res.status(200).json(allEvents)

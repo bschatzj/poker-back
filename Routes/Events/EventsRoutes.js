@@ -1,7 +1,6 @@
 const router = require('express-promise-router')()
 
 const db = require('../../data/db');
-const { all } = require('../api-router');
 
 
 router.get('/', async (req, res) => {
@@ -13,6 +12,20 @@ router.get('/', async (req, res) => {
         })
         .catch(err => {
             console.log(err)
+        })
+})
+
+
+router.post('/newevent', async (req, res) => {
+    await db('calendar')
+        .insert(req.body)
+        .then(event => {
+            console.log(event)
+            res.status(200).json("Event Added")
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json("Error Adding Event")
         })
 })
 
